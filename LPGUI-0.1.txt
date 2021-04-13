@@ -1,0 +1,27 @@
+command /luckperms [<text="gui">] [<player>]:
+	permission: lpgui.use
+	aliases: /lpg
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+				wait 1 tick
+				open chest with 6 rows named "&aLuck&7Perms &eMenu" to player
+				wait 1 tick
+				format slot 10 of player with barrier named "&7Default" to close then run [execute player command "/lp user %player% parent set default"]
+				format slot 12 of player with iron block named "&eHelper" to close then run [execute player command "/lp user %player% parent set helper"]
+				format slot 14 of player with gold block named "&aMod" to close then run [execute player command "/lp user %player% parent set mod"]
+				format slot 16 of player with diamond block named "&cAdmin" to close then run [execute player command "/lp user %player% parent set admin"]
+				format slot 22 of player with emerald block named "&4Owner" to close then run [execute player command "/lp user %player% parent set owner"]
+		if arg-1 is set:
+			if arg-2 is set:
+				wait 1 tick
+				open chest with 6 rows named "&aLuck&7Perms &eMenu" to player
+				wait 1 tick
+				format slot 10 of player with barrier named "&7Default" to close then run [execute player command "/lp user %arg-2% parent set default"]
+				format slot 12 of player with iron block named "&eHelper" to close then run [execute player command "/lp user %arg-2% parent set helper"]
+				format slot 14 of player with gold block named "&aMod" to close then run [execute player command "/lp user %arg-2% parent set mod"]
+				format slot 16 of player with diamond block named "&cAdmin" to close then run [execute player command "/lp user %arg-2% parent set admin"]
+				format slot 22 of player with emerald block named "&4Owner" to close then run [execute player command "/lp user %arg-2% parent set owner"]
+Collapse
+code1.txt
+2 KB
