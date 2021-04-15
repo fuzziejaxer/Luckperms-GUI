@@ -1,0 +1,37 @@
+command /rank [<text="gui">] [<player>]:
+	permission: lpgui.use
+	aliases: /grant
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+				wait 1 tick
+				open chest with 6 rows named "&aLuck&7Perms &eMenu" to player
+				wait 1 tick
+				format slot 1 of player with barrier named "&7Default" to close then run [execute player command "/lp user %player% parent set default"]
+				format slot 3 of player with iron block named "&eHelper" to close then run [execute player command "/lp user %player% parent set helper"]
+				format slot 5 of player with gold block named "&aMod" to close then run [execute player command "/lp user %player% parent set mod"]
+				format slot 7 of player with diamond block named "&cAdmin" to close then run [execute player command "/lp user %player% parent set admin"]
+				format slot 22 of player with emerald block named "&4Owner" to close then run [execute player command "/lp user %player% parent set owner"]
+				format slot 41 of player with green wool named "&a&lPromote" to close then run [execute player command "/lp user %player% promote staff"]
+				format slot 39 of player with red wool named "&4&lDemote" to close then run [execute player command "/lp user %player% demote staff"]
+				format slot 19 of player with redstone block named "&2Dev" to close then run [execute player command "/lp user %player% parent set dev"]
+				format slot 25 of player with lapis lazuli block named "&6Builder" to close then run [execute player command "/lp user %player% parent set builder"]
+				format slot 45 of player with coal block named "&ePermissions" with lore "&5Requires The &ePermissions &5Addon" to close then run [execute console command "/msg %player% &5To Open The Perms GUI Please Use &e/permgui &5or &e/rpgui"]
+				format slot 53 of player with golden apple named "&9&lHelp" to close then run [execute console command "/msg %player% &5If You Need Help On Using/Configurating The Plugin, Join Here: &ehttps://discord.gg/wrVr644mGf"]
+				format slot 49 of player with arrow named "&a&lEditor" to close then run [execute player command "/lp editor"]
+			if arg-2 is set:
+				wait 1 tick
+				open chest with 6 rows named "&aLuck&7Perms &eMenu" to player
+				wait 1 tick
+				format slot 1 of player with barrier named "&7Default" to close then run [execute player command "/lp user %arg-2% parent set default"]
+				format slot 3 of player with iron block named "&eHelper" to close then run [execute player command "/lp user %arg-2% parent set helper"]
+				format slot 5 of player with gold block named "&aMod" to close then run [execute player command "/lp user %arg-2% parent set mod"]
+				format slot 7 of player with diamond block named "&cAdmin" to close then run [execute player command "/lp user %arg-2% parent set admin"]
+				format slot 22 of player with emerald block named "&4Owner" to close then run [execute player command "/lp user %arg-2% parent set owner"]
+				format slot 41 of player with green wool named "&a&lPromote" to close then run [execute player command "/lp user %arg-2% promote staff"]
+				format slot 39 of player with red wool named "&4&lDemote" to close then run [execute player command "/lp user %arg-2% demote staff"]
+				format slot 19 of player with redstone block named "&2Dev" to close then run [execute player command "/lp user %arg-2% parent set dev"]
+				format slot 25 of player with lapis lazuli block named "&6Builder" to close then run [execute player command "/lp user %arg-2% parent set builder"]
+				format slot 45 of player with coal block named "&ePermissions" with lore "&5Requires The &ePermissions &5Addon" to close then run [execute player command "/msg %arg-2% &5To Open The Perms GUI Please Use &e/permgui &5or &e/rpgui"]
+				format slot 53 of player with golden apple named "&9&lHelp" to close then run [execute console command "/msg %arg-2% &5If You Need Help On Using/Configurating The Plugin, Join Here: &ehttps://discord.gg/wrVr644mGf"]
+				format slot 49 of player with arrow named "&a&lEditor" to close then run [execute player command "/lp editor"]
