@@ -1,0 +1,161 @@
+command /rank [<text="gui">] [<player>]:
+	permission: lpgui.use
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission To Open The GUI
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+				wait 1 tick
+				open chest with 6 rows named "&aLuck&7Perms &eMenu" to player
+				wait 1 tick
+				format slot 1 of player with barrier named "&7Default" with lore "&7Sets &e%player% &7Rank To Default" to close then run [execute player command "/lp user %player% parent set default"]
+				format slot 3 of player with iron block named "&eHelper" with lore "&7Sets &e%player% &7Rank To Helper" to close then run [execute player command "/lp user %player% parent set helper"]
+				format slot 5 of player with gold block named "&aMod" with lore "&7Sets &e%player% &7Rank To Mod" to close then run [execute player command "/lp user %player% parent set mod"]
+				format slot 7 of player with diamond block named "&cAdmin" with lore "&7Sets &e%player% &7Rank To Admin" to close then run [execute player command "/lp user %player% parent set admin"]
+				format slot 22 of player with emerald block named "&4Owner" with lore "&7Sets &e%player% &7Rank To Owner" to close then run [execute player command "/lp user %player% parent set owner"]
+				format slot 41 of player with green wool named "&a&lPromote" with lore "&7Will Promote &e%player% &7On The Track" to close then run [execute player command "/lp user %player% promote staff"]
+				format slot 39 of player with red wool named "&4&lDemote" with lore "&7Will Demote &e%player% &7On The Track" to close then run [execute player command "/lp user %player% demote staff"]
+				format slot 19 of player with redstone block named "&2Dev" with lore "&7Sets &e%player% &7Rank To Dev" to close then run [execute player command "/lp user %player% parent set dev"]
+				format slot 25 of player with lapis lazuli block named "&6Builder" with lore "&7Sets &e%player% &7Rank To Builder" to close then run [execute player command "/lp user %player% parent set builder"]
+				format slot 45 of player with coal block named "&e&lPermissions" with lore "&7Will Give You Commands To Open The Permissions GUI" with lore "&5Requires The &ePermissions &5Addon" to close then run [send "&7&l[&a&lLP&f&lGUI&7&l] &fTo Open The Perms GUI Please Use &e/permgui &for &e/rp gui" to player]
+				format slot 53 of player with golden apple named "&9&lHelp"  to close then run [send "&7&l[&a&lLP&f&lGUI&7&l] &fIf You Need Help On Using/Configurating The Plugin, Join Here: &ehttps://discord.gg/wrVr644mGf" to player]
+				format slot 51 of player with anvil named "&a&lEditor" to close then run [execute player command "/lp editor"]
+				format slot 47 of player with arrow named "&4&lInfo"  to close then run [execute player command "/lp user %player% info"]
+				format slot 49 of player with oak sapling named "&2&lTree" to close then run [execute player command "/lp tree"]
+			if arg-2 is set:
+				wait 1 tick
+				open chest with 6 rows named "&aLuck&7Perms &eMenu" to player
+				wait 1 tick
+				format slot 1 of player with barrier named "&7Default" with lore "&7Sets &e%arg-2% &7Rank To Default" to close then run [execute player command "/lp user %arg-2% parent set default"]
+				format slot 3 of player with iron block named "&eHelper" with lore "&7Sets &e%arg-2% &7Rank To Helper" to close then run [execute player command "/lp user %arg-2% parent set helper"]
+				format slot 5 of player with gold block named "&aMod" with lore "&7Sets &e%arg-2% &7Rank To Mod" to close then run [execute player command "/lp user %arg-2% parent set mod"]
+				format slot 7 of player with diamond block named "&cAdmin" with lore "&7Sets &e%arg-2% &7Rank To Admin" to close then run [execute player command "/lp user %arg-2% parent set admin"]
+				format slot 22 of player with emerald block named "&4Owner" with lore "&7Sets &e%arg-2% &7Rank To Owner" to close then run [execute player command "/lp user %arg-2% parent set owner"]
+				format slot 41 of player with green wool named "&a&lPromote" with lore "&7Will Promote &e%arg-2% &7On The Track" to close then run [execute player command "/lp user %arg-2% promote staff"]
+				format slot 39 of player with red wool named "&4&lDemote" with lore "&7Will Demote &e%arg-2% &7On The Track" to close then run [execute player command "/lp user %arg-2% demote staff"]
+				format slot 19 of player with redstone block named "&2Dev" with lore "&7Sets &e%arg-2% &7Rank To Dev" to close then run [execute player command "/lp user %arg-2% parent set dev"]
+				format slot 25 of player with lapis lazuli block named "&6Builder" with lore "&7Sets &e%arg-2% &7Rank To Builder" to close then run [execute player command "/lp user %arg-2%parent set builder"]
+				format slot 45 of player with coal block named "&e&lPermissions" with lore "&7Will Give You Commands To Open The Permissions GUI" with lore "&5Requires The &ePermissions &5Addon" to close then run [send "&7&l[&a&lLP&f&lGUI&7&l] &fTo Open The Perms GUI Please Use &e/permgui &for &e/rp gui" to player]
+				format slot 53 of player with golden apple named "&9&lHelp"  to close then run [send "&7&l[&a&lLP&f&lGUI&7&l] &fIf You Need Help On Using/Configurating The Plugin, Join Here: &ehttps://discord.gg/wrVr644mGf" to player]
+				format slot 51 of player with anvil named "&a&lEditor" to close then run [execute player command "/lp editor"]
+				format slot 47 of player with arrow named "&4&lInfo"  to close then run [execute player command "/lp user %arg-2% info"]
+				format slot 49 of player with oak sapling named "&2&lTree" to close then run [execute player command "/lp tree"]
+command /grant [<text="gui">] [<player>]:
+	permission: lpgui.permission
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission To Open The GUI
+	aliases: /permgui
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+				wait 1 tick
+				open chest with 6 rows named "&eQuick &5Permissions &6Menu" to player
+				wait 1 tick
+				format slot 49 of player with barrier named "&cReset All Perms" to close then run [execute player command "/lp user %player% permission clear"]
+				format slot 0 of player with lime wool named "&eEssentials.*" with lore "&5Gives Access To All Essentials Commands" to close then run [execute player command "/lp user %player% permission set essentials.*"]
+				format slot 1 of player with lime wool named "&aLitebans.*" with lore "&5Gives Access To All Litebans Commands" to close then run [execute player command "/lp user %player% permission set litebans.*"]
+				format slot 2 of player with lime wool named "&2Luckperms.*" with lore "&5Gives Access To All Luckperms Commands" to close then run [execute player command "/lp user %player% permission set luckperms.*"]
+				format slot 3 of player with lime wool named "&6Worldedit.*" with lore "&5Gives Access To All Worldedit commands" to close then run [execute player command "/lp user %player% permission set worldedit.*"]
+				format slot 4 of player with lime wool named "&9Cratesplus.*" with lore "&5Gives Access To ALl Cratesplus Commands" to close then run [execute player command "/lp user %player% permission set cratesplus.admin"]
+				format slot 5 of player with lime wool named "&1Citizens.*" with lore "&5Gives Access To All Citizens Commands" to close then run [execute player command "/lp user %player% permission set citizens.*"]
+				format slot 6 of player with lime wool named "&alpgui.*" with lore "&5Gives Access To LuckpermsGUI Commands" to close then run [execute player command "/lp user %player% permission set lpgui.use"]
+				format slot 7 of player with lime wool named "&3Gamemode" with lore "&5Gives Access To Gamemode" to close then run [execute player command "/lp user %player% permission set essentials.gamemode"]
+				format slot 32 of player with lime wool named "&3Spectator" with lore "&5Gives Access To Gamemode Spectator" to close then run [execute player command "/lp user %player% permission set essentials.gamemode.spectator"]
+				format slot 30 of player with lime wool named "&eCreative" with lore "&5Gives Access To Gamemode Creative" to close then run [execute player command "/lp user %player% permission set essentials.gamemode.creative"]
+				format slot 31 of player with lime wool named "&7Survival" with lore "&5Gives Access To Gamemode Survival" to close then run [execute player command "/lp user %player% permission set essentials.gamemode.survival"]
+				format slot 8 of player with lime wool named "&aMuteChatBypass" with lore "&5Allows Player To Talk When Chat Is Muted" to close then run [execute player command "/lp user %player% permission set litebans.mutechat.bypass"]
+				format slot 9 of player with red wool named "&cReset Essentials" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset essentials.*"]
+				format slot 10 of player with red wool named "&cReset Litebans" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset litebans.*"]
+				format slot 11 of player with red wool named "&cReset Luckperms" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset luckperms.*"]
+				format slot 12 of player with red wool named "&cReset Worldedit" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset worldedit.*"]
+				format slot 13 of player with red wool named "&cReset Cratesplus" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset cratesplus.admin"]
+				format slot 14 of player with red wool named "&cReset Citizens" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset citizens.*"]
+				format slot 15 of player with red wool named "&cReset lpgui" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset lpgui.use"]
+				format slot 16 of player with red wool named "&cReset Gamemode" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset essentials.gamemode"]
+				format slot 41 of player with red wool named "&cReset Spectator" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset essentials.gamemode.spectator"]
+				format slot 39 of player with red wool named "&cReset Creative" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset essentials.gamemode.creative"]
+				format slot 40 of player with red wool named "&cReset Survival" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset essentials.gamemode.survival"]
+				format slot 17 of player with red wool named "&cReset MuteChatBypass" with lore "&cReset This Perm" to close then run [execute player command "/lp user %player% permission unset litebans.mutechat.bypass"]
+		if arg-1 is set:
+			if arg-2 is set:
+				wait 1 tick
+				open chest with 6 rows named "&eQuick &5Permissions &6Menu" to player
+				wait 1 tick
+				format slot 49 of player with barrier named "&cReset All Perms" to close then run [execute player command "/lp user %arg-2% permission clear"]
+				format slot 0 of player with lime wool named "&eEssentials.*" with lore "&5Gives Access To All Essentials Commands" to close then run [execute player command "/lp user %arg-2% permission set essentials.*"]
+				format slot 1 of player with lime wool named "&aLitebans.*" with lore "&5Gives Access To All Litebans Commands" to close then run [execute player command "/lp user %arg-2% permission set litebans.*"]
+				format slot 2 of player with lime wool named "&2Luckperms.*" with lore "&5Gives Access To All Luckperms Commands" to close then run [execute player command "/lp user %arg-2% permission set luckperms.*"]
+				format slot 3 of player with lime wool named "&6Worldedit.*" with lore "&5Gives Access To All Worldedit commands" to close then run [execute player command "/lp user %arg-2% permission set worldedit.*"]
+				format slot 4 of player with lime wool named "&9Cratesplus.*" with lore "&5Gives Access To ALl Cratesplus Commands" to close then run [execute player command "/lp user %arg-2% permission set cratesplus.admin"]
+				format slot 5 of player with lime wool named "&1Citizens.*" with lore "&5Gives Access To All Citizens Commands" to close then run [execute player command "/lp user %arg-2% permission set citizens.*"]
+				format slot 6 of player with lime wool named "&alpgui.*" with lore "&5Gives Access To LuckpermsGUI Commands" to close then run [execute player command "/lp user %arg-2% permission set lpgui.use"]
+				format slot 7 of player with lime wool named "&3Gamemode" with lore "&5Gives Access To Gamemode" to close then run [execute player command "/lp user %arg-2% permission set essentials.gamemode"]
+				format slot 32 of player with lime wool named "&3Spectator" with lore "&5Gives Access To Gamemode Spectator" to close then run [execute player command "/lp user %arg-2% permission set essentials.gamemode.spectator"]
+				format slot 30 of player with lime wool named "&eCreative" with lore "&5Gives Access To Gamemode Creative" to close then run [execute player command "/lp user %arg-2% permission set essentials.gamemode.creative"]
+				format slot 31 of player with lime wool named "&7Survival" with lore "&5Gives Access To Gamemode Survival" to close then run [execute player command "/lp user %arg-2% permission set essentials.gamemode.survival"]
+				format slot 8 of player with lime wool named "&aMuteChatBypass" with lore "&5Allows Player To Talk When Chat Is Muted" to close then run [execute player command "/lp user %arg-2% permission set litebans.mutechat.bypass"]
+				format slot 9 of player with red wool named "&cReset Essentials" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset essentials.*"]
+				format slot 10 of player with red wool named "&cReset Litebans" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset litebans.*"]
+				format slot 11 of player with red wool named "&cReset Luckperms" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset luckperms.*"]
+				format slot 12 of player with red wool named "&cReset Worldedit" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset worldedit.*"]
+				format slot 13 of player with red wool named "&cReset Cratesplus" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset cratesplus.admin"]
+				format slot 14 of player with red wool named "&cReset Citizens" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset citizens.*"]
+				format slot 15 of player with red wool named "&cReset lpgui" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset lpgui.use"]
+				format slot 16 of player with red wool named "&cReset Gamemode" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset essentials.gamemode"]
+				format slot 41 of player with red wool named "&cReset Spectator" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset essentials.gamemode.spectator"]
+				format slot 39 of player with red wool named "&cReset Creative" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset essentials.gamemode.creative"]
+				format slot 40 of player with red wool named "&cReset Survival" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset essentials.gamemode.survival"]
+				format slot 17 of player with red wool named "&cReset MuteChatBypass" with lore "&cReset This Perm" to close then run [execute player command "/lp user %arg-2% permission unset litebans.mutechat.bypass"]
+command /admin [<text="set">] [<player>]:
+	permission: lpgui.admin
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fUse &e/admin set <player>" to player
+		if arg-2 is set:
+			execute player command "/lp user %arg-2% parent set admin"
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fSetting %arg-2% Rank To Admin" to player
+command /mod [<text="set">] [<player>]:
+	permission: lpgui.mod
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fUse &e/mod set <player>" to player
+		if arg-2 is set:
+			execute player command "/lp user %arg-2% parent set mod"
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fSetting %arg-2% Rank To Mod" to player
+command /owner [<text="set">] [<player>]:
+	permission: lpgui.owner
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fUse &e/mod set <player>" to player
+		if arg-2 is set:
+			execute player command "/lp user %arg-2% parent set owner"
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fSetting %arg-2% Rank To Owner" to player
+command /helper [<text="set">] [<player>]:
+	permission: lpgui.helper
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fUse &e/helper set <player>" to player
+		if arg-2 is set:
+			execute player command "/lp user %arg-2% parent set helper"
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fSetting %arg-2% Rank To Helper" to player
+command /default [<text="set">] [<player>]:
+	permission: lpgui.owner
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission
+	trigger:
+		if arg-1 is set:
+			if arg-2 is not set:
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fUse &e/default set <player>" to player
+		if arg-2 is set:
+			execute player command "/lp user %arg-2% parent set default"
+			send "&7&l[&a&lLP&f&lGUI&7&l] &fSetting %arg-2% Rank To Default" to player
+command /lpguihelp:
+	permission: lpgui.use
+	permission message: &7&l[&a&lLP&f&lGUI&7&l] &cNo Permission To Open The GUI
+	trigger:
+		send "&7&l[&a&lLP&f&lGUI&7&l] &fTo Get Help Join This:&e https://discord.gg/URtUgfMMfp" to player
