@@ -167,4 +167,4 @@ command /lpguiver:
 command /lpguireload:
 	aliases: /lpgreload
 	trigger:
-		execute player command "/sk reload lpgui"
+		execute player command "/sk reload %script%"
